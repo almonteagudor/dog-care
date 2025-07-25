@@ -6,6 +6,7 @@ ARG GID
 
 RUN apk add --no-cache --virtual .build-deps icu-dev libzip-dev zip autoconf g++ make linux-headers \
     && apk add --no-cache icu-libs libzip \
+    && apk add --no-cache nodejs npm \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl pdo pdo_mysql zip \
     && pecl install xdebug-3.4.1 \
