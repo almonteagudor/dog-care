@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('diseases', DiseaseController::class);
+//Route::resource('diseases', DiseaseController::class);

@@ -7,9 +7,6 @@ use Illuminate\Database\Seeder;
 
 class DiseaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         foreach ($this->data() as $item) {

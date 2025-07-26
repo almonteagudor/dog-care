@@ -14,7 +14,9 @@ return [
     */
 
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
+    'invalid_data' => 'Los datos proporcionados no son válidos.',
     'password' => 'La contraseña proporcionada es incorrecta.',
+    'revoked' => 'Token revocado exitosamente.',
     'throttle' => 'Demasiados intentos de acceso. Por favor inténtalo de nuevo en :seconds segundos.',
 
 ];

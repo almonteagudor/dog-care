@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDiseaseRequest;
-use App\Http\Requests\UpdateDiseaseRequest;
+use App\Http\Requests\Api\Disease\StoreDiseaseRequest;
+use App\Http\Requests\Api\Disease\UpdateDiseaseRequest;
 use App\Models\Disease;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;

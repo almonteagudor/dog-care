@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
+            AllergySeeder::class,
             DiseaseSeeder::class,
+            MedicineSeeder::class,
         ]);
     }
 }

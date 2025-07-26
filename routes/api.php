@@ -1,13 +1,20 @@
 <?php
 
+use App\Http\Controllers\Api\AllergyController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\DiseaseController;
 use App\Http\Controllers\Api\MedicineController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::post('/login', [AuthController::class, 'login']);
 
-Route::apiResource('diseases', DiseaseController::class);
-Route::apiResource('medicines', MedicineController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::get('/user', fn(Request $request) => $request->user());
+
+    Route::apiResource('allergies', AllergyController::class);
+    Route::apiResource('diseases', DiseaseController::class);
+    Route::apiResource('medicines', MedicineController::class);
+});
