@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'authentication_required' => 'Autenticación requerida.',
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'invalid_data' => 'Los datos proporcionados no son válidos.',
     'password' => 'La contraseña proporcionada es incorrecta.',

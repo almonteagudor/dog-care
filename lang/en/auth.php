@@ -13,6 +13,7 @@ return [
     |
     */
 
+    'authentication_required' => 'Authentication required.',
     'failed' => 'These credentials do not match our records.',
     'invalid_data' => 'The provided data is not valid.',
     'password' => 'The provided password is incorrect.',
