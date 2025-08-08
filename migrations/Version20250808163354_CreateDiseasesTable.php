@@ -23,7 +23,7 @@ final class Version20250808163354_CreateDiseasesTable extends AbstractMigration
 
         $diseaseTable->addColumn('id', Types::GUID, ['notnull' => true, 'length' => 36]);
         $diseaseTable->addColumn('name', Types::STRING, ['notnull' => true, 'length' => 50]);
-        $diseaseTable->addColumn('description', Types::STRING, ['notnull' => false, 'length' => 500],);
+        $diseaseTable->addColumn('description', Types::STRING, ['notnull' => false, 'length' => 500]);
         $diseaseTable->addColumn('created_at', Types::STRING, ['notnull' => true, 'length' => 30]);
         $diseaseTable->addColumn('updated_at', Types::STRING, ['notnull' => false, 'length' => 30]);
         $diseaseTable->addColumn('deleted_at', Types::STRING, ['notnull' => false, 'length' => 30]);
@@ -31,7 +31,6 @@ final class Version20250808163354_CreateDiseasesTable extends AbstractMigration
         $diseaseTable->addPrimaryKeyConstraint(
                 new PrimaryKeyConstraint(null, [UnqualifiedName::quoted('id')], true)
         );
-
     }
 
     public function down(Schema $schema): void
