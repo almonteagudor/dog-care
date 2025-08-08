@@ -1,10 +1,26 @@
 parameters:
 
 services:
-    _defaults:
-        autowire: true
-        autoconfigure: true
+  _defaults:
+    autowire: true
+    autoconfigure: true
 
-    App\:
-        resource: '../src/'
+  App\Controller\:
+    resource: '../app/Controller/'
+    tags: [ 'controller.service_arguments' ]
 
+  DogCare\:
+    resource: '../src/'
+
+  _instanceof:
+    DogCare\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'dog-care.command_handler' ]
+
+    DogCare\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'dog-care.query_handler' ]
+
+  DogCare\Shared\Infrastructure\Bus\Command\InMemoryCommandBus:
+    arguments: [ !tagged_iterator dog-care.command_handler ]
+
+  DogCare\Shared\Infrastructure\Bus\Query\InMemoryQueryBus:
+    arguments: [ !tagged_iterator dog-care.query_handler ]
