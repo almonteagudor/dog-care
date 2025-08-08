@@ -1,0 +1,12 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        driver: 'pdo_mysql'
+        server_version: '8.2.0'
+        host: '%env(resolve:DB_HOST)%'
+        port: '%env(resolve:DB_PORT)%'
+        user: '%env(resolve:DB_USER)%'
+        password: '%env(resolve:DB_PASSWORD)%'
+        dbname: '%env(resolve:DB_NAME)%'
