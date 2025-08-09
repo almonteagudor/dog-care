@@ -1,8 +1,3 @@
 v1:
   resource: v1/v1-routes.yaml
   prefix: 'v1'
-
-test:
-  controller: \App\Controller\TestController
-  methods: GET
-  path: /{text}
