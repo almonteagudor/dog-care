@@ -1,0 +1,41 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Controller\:
+    resource: '../app/Controller/'
+    tags: [ 'controller.service_arguments' ]
+
+  App\Tests\DataFixtures\Fixtures\:
+    resource: '../tests/DataFixtures/Fixtures'
+
+  DogCare\:
+    resource: '../src/'
+
+  _instanceof:
+    DogCare\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'dog-care.command_handler' ]
+
+    DogCare\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'dog-care.query_handler' ]
+
+  DogCare\Shared\Infrastructure\Bus\Command\InMemoryCommandBus:
+    arguments: [ !tagged_iterator dog-care.command_handler ]
+
+  DogCare\Shared\Infrastructure\Bus\Query\InMemoryQueryBus:
+    arguments: [ !tagged_iterator dog-care.query_handler ]
+
+  DogCare\Shared\Infrastructure\Symfony\ApiExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception, method: onException }
+
+  DogCare\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  DogCare\Shared\Infrastructure\Symfony\AddQueryParamsToRequestListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

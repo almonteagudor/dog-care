@@ -1,0 +1,3 @@
+api_controllers:
+  resource: routes/api/api-routes.yaml
+  prefix: 'api'
